@@ -3,6 +3,8 @@
 
 沈明宏（mhshenaa@connect.ust.hk）
 
+[点击回到 Github](https://github.com/socimh/2024-Summer-R-Workshop)
+
 ## 实用链接
 
 工作坊链接
