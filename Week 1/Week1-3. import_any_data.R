@@ -16,12 +16,12 @@
 # The following packages are required to run this script.
 # You can install them by uncommeting and running the following code:
 
-install.packages(
-  c(
-    "readr", "readxl", "haven", "vroom", "arrow",
-    "jsonlite", "rvest"
-  )
-)
+# install.packages(
+#   c(
+#     "readr", "readxl", "haven", "vroom", "arrow",
+#     "jsonlite", "rvest"
+#   )
+# )
 
 # ===========================================================
 ################## Locate the data folder ##################
@@ -92,7 +92,7 @@ tb <- read_html("sample_data.html") |>
 
 
 # ===========================================================
-################ Advanced data import techniques #############
+################ Standard data import techniques #############
 # ===========================================================
 
 # In a big project, using setwd() is not recommended.
@@ -101,4 +101,5 @@ tb <- read_html("sample_data.html") |>
 # For example, to save the data as an Excel file:
 path <- file.path(data_folder, "sample_data.xlsx")
 path # Check the full path. This step is optional.
+
 tb <- read_excel(path)

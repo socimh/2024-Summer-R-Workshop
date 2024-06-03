@@ -16,9 +16,11 @@ root <- getwd() # Change this to your own directory
 path <- root |>
   file.path("sample_data.dta")
 
-tb <- read_dta(path)
+tb <- read_data(path)
+tb <- read_dta(path) # equivalent
 
-s_print(tb)
+print_interval(tb)
+codebook(tb)
 summ(tb)
 
 tb <- tb |>
@@ -26,7 +28,8 @@ tb <- tb |>
     a1 = a + 1,
     b2 = b * 2
   )
-s_print(tb)
+print_interval(tb)
 
 # Export the data to a .ftr file
-write_feather(tb, "sample_data_cleaned.ftr")
+write_data(tb, "sample_data_cleaned.ftr")
+write_feather(tb, "sample_data_cleaned.ftr") # equivalent

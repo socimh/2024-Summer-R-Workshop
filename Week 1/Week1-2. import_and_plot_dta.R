@@ -6,7 +6,6 @@
 # Export: sample_data_plot.png
 
 # Load the necessary packages
-library(haven)
 library(tidyverse)
 library(statart)
 
@@ -15,9 +14,11 @@ root <- getwd() |> file.path("Sample Data") # Change this to your own directory
 path <- root |>
   file.path("sample_data.dta")
 
-tb <- read_dta(path)
+tb <- read_data(path)
+tb <- read_dta(path) # equivalent
 
-s_print(tb)
+print_interval(tb)
+codebook(tb)
 summ(tb)
 
 gg <- tb |>

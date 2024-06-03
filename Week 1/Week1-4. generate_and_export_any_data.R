@@ -138,7 +138,7 @@ tb %>%
 
 
 # ===========================================================
-################ Advanced data export techniques #############
+################ Standard data export techniques #############
 # ===========================================================
 
 # In a big project, using setwd() is not recommended.
@@ -147,4 +147,5 @@ tb %>%
 # For example, to save the data as an Excel file:
 path <- file.path(out_folder, "sample_data.xlsx")
 path # Check the full path. This step is optional.
+
 write.xlsx(tb, path)
