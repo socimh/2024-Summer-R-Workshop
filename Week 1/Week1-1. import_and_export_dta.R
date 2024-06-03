@@ -1,7 +1,7 @@
 # Goal: Demo how to import and export data
 # Author: Minghong SHEN
 # Date: 2024-05-25
-# Last update: 2024-05-25
+# Last update: 2024-06-03
 # Import: sample_data.dta
 # Export: sample_data_cleaned.ftr
 
@@ -12,12 +12,13 @@ library(statart)
 library(arrow)
 
 # Load the sample data
-root <- getwd() # Change this to your own directory
-path <- root |>
-  file.path("sample_data.dta")
+# Change it to your own directory
+# There are many ways to specify the path
+path <- getwd() %>%
+  file.path("Sample Data/sample_data.dta")
 
 tb <- read_data(path)
-tb <- read_dta(path) # equivalent
+# tb <- read_dta(path) # equivalent
 
 print_interval(tb)
 codebook(tb)
@@ -32,4 +33,4 @@ print_interval(tb)
 
 # Export the data to a .ftr file
 write_data(tb, "sample_data_cleaned.ftr")
-write_feather(tb, "sample_data_cleaned.ftr") # equivalent
+# write_feather(tb, "sample_data_cleaned.ftr") # equivalent

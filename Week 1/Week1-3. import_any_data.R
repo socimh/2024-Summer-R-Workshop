@@ -43,6 +43,10 @@ data_folder <- getwd() |>
 # Usually I don't use setwd(), but it is useful here.
 setwd(data_folder)
 
+# You could simply use read_data() from the statart package to read data
+# from various formats.
+# Here, I just show the equivalent functions from other packages.
+
 # Read from R data formats
 load("sample_data.RData")
 library(readr)

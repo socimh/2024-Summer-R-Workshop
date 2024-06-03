@@ -28,6 +28,10 @@
 ##################### Create sample data #####################
 # ===========================================================
 
+# You could simply use read_data() from the statart package to read data
+# from various formats.
+# Here, I just show the equivalent functions from other packages.
+
 library(tidyverse)
 
 # This script shows how to save data in various formats.

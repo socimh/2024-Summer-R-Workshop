@@ -1,7 +1,7 @@
 # Goal: Demo how to import and plot data
 # Author: Minghong SHEN
 # Date: 2024-05-25
-# Last update: 2024-05-25
+# Last update: 2024-06-03
 # Import: sample_data.dta
 # Export: sample_data_plot.png
 
@@ -10,12 +10,13 @@ library(tidyverse)
 library(statart)
 
 # Load the sample data
-root <- getwd() |> file.path("Sample Data") # Change this to your own directory
-path <- root |>
-  file.path("sample_data.dta")
+# Change it to your own directory
+# There are many ways to specify the path
+path <- getwd() %>%
+  file.path("Sample Data/sample_data.dta")
 
 tb <- read_data(path)
-tb <- read_dta(path) # equivalent
+# tb <- read_dta(path) # equivalent
 
 print_interval(tb)
 codebook(tb)
@@ -31,7 +32,8 @@ gg <- tb |>
     linetype = "dashed"
   )
 
-out_path <- root |>
-  file.path("sample_data_plot.png")
+# Change it to your own directory
+out_path <- getwd() %>%
+  file.path("sample data/sample_data_plot.png")
 
 ggsave(out_path, gg, width = 6, height = 4, dpi = 300, units = "in")

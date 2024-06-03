@@ -21,9 +21,9 @@
 
 
 ###### Load WHO data ######
-# QUESTION 2. Take a look at the built-in dataset of tidyverse "who"
+# QUESTION 2. Print the built-in dataset of tidyverse "who".
 # QUESTION 2a. How many rows and columns are there in the dataset "who"?
-# QUESTION 2b. What is the dominant column type (i.e., character, numeric, etc.)?
+# QUESTION 2b. What is the dominant column type (e.g., character, numeric)?
 # QUESTION 2c. Store the data in csv format.
 
 
@@ -44,4 +44,4 @@ nslw88 <- arrange(nslw88, wage)
 
 ###### Formatting ######
 # QUESTION 4. It is always a good idea to write something in the header.
-# Complete the header lines.
+# Complete the header lines (line 6-9) in the script.

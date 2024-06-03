@@ -14,7 +14,7 @@ install.packages("devtools")
 devtools::install_github("socimh/statart")
 
 # Install multiple packages at once
-packages <- c("flextable", "officer", "kableExtra")
+packages <- c("pacman", "flextable", "officer", "kableExtra")
 install.packages(packages)
 
 
@@ -35,8 +35,3 @@ tibble::tibble(a = 1)
 # 3. pacman::p_load(...)
 # This is the most convenient way to load multiple packages
 pacman::p_load(tidyverse, statart, flextable)
-
-
-library(tidyverse)
-starwars %>%
-  select(-c(1:3))
