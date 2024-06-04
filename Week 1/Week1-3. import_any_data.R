@@ -33,7 +33,7 @@ getwd()
 # You should change it to your own folder
 # You can type the directory manually or use file.choose()
 data_folder <- getwd() |>
-  file.path("Sample Data")
+  file.path("Week 1/Sample Data")
 
 
 # ===========================================================

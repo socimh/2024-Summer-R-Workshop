@@ -9,20 +9,19 @@
 library(haven)
 library(tidyverse)
 library(statart)
-library(arrow)
 
 # Load the sample data
 # Change it to your own directory
 # There are many ways to specify the path
 path <- getwd() %>%
-  file.path("Sample Data/sample_data.dta")
+  file.path("Week 1/Sample Data/sample_data.dta")
 
 tb <- read_data(path)
 # tb <- read_dta(path) # equivalent
 
 print_interval(tb)
-codebook(tb)
-summ(tb)
+codebook(tb) # codebook *, c in Stata
+summ(tb) # summ * in Stata
 
 tb <- tb |>
   mutate(
@@ -31,6 +30,7 @@ tb <- tb |>
   )
 print_interval(tb)
 
+# .ftr is a feather file (轻如鸿毛)
 # Export the data to a .ftr file
 write_data(tb, "sample_data_cleaned.ftr")
 # write_feather(tb, "sample_data_cleaned.ftr") # equivalent

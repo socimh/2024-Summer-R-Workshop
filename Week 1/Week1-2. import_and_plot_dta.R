@@ -13,7 +13,7 @@ library(statart)
 # Change it to your own directory
 # There are many ways to specify the path
 path <- getwd() %>%
-  file.path("Sample Data/sample_data.dta")
+  file.path("Week 1/Sample Data/sample_data.dta")
 
 tb <- read_data(path)
 # tb <- read_dta(path) # equivalent
@@ -34,6 +34,6 @@ gg <- tb |>
 
 # Change it to your own directory
 out_path <- getwd() %>%
-  file.path("sample data/sample_data_plot.png")
+  file.path("Week 1/sample data/sample_data_plot.png")
 
 ggsave(out_path, gg, width = 6, height = 4, dpi = 300, units = "in")
