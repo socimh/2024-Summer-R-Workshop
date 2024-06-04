@@ -1,6 +1,5 @@
 ## 2024 R 语言 tidyverse 入门工作坊
 
-
 沈明宏（mhshenaa@connect.ust.hk）
 
 [点击回到 Github](https://github.com/socimh/2024-Summer-R-Workshop)
@@ -27,9 +26,9 @@ tidyverse 链接
 
 - [Hadley Wickham](https://hadley.nz/) 的 [R for Data Science (2e)](https://r4ds.hadley.nz/)
 - 北大数学 李东风老师 [R 语言教程](https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html)
-- 川师物理 王敏杰老师 [数据科学中的R语言](https://bookdown.org/wangminjie/R4DS/author.html)
-- HE Lingxiao [R数据分析入门](https://bookdown.org/lhe/a-quick-start-on-data-analysis-in-r/#%E6%9C%AC%E4%B9%A6%E8%AF%B4%E6%98%8E)
-- 黄湘云 [R语言数据分析实战](https://bookdown.org/xiangyun/data-analysis-in-action/)
+- 川师物理 王敏杰老师 [数据科学中的 R 语言](https://bookdown.org/wangminjie/R4DS/author.html)
+- HE Lingxiao [R 数据分析入门](https://bookdown.org/lhe/a-quick-start-on-data-analysis-in-r/#%E6%9C%AC%E4%B9%A6%E8%AF%B4%E6%98%8E)
+- 黄湘云 [R 语言数据分析实战](https://bookdown.org/xiangyun/data-analysis-in-action/)
 - Hadley Wickham 的 [ggplot2: elegant graphics for data analysis (3e)](https://ggplot2-book.org/statistical-summaries)
 - Edzer Pebesma [Geocomputation with R (2e)](https://r.geocompx.org/)
 
@@ -49,13 +48,25 @@ tidyverse 链接
 
 ## Week 2 清理数据
 
-## Week 3 统计数据、简易画图、回归模型(?)
+- dplyr 排序（第 4 章）
+- magrittr 管道（第 5 章）
+- dplyr 的两种语法（第 6 章）
+- dplyr 的选取或删除（第 7 章）
+- dplyr 的修改或新建（第 8 章）
+
+## Week 3 统计数据、简易画图、简易回归
+
+- dplyr 统计（第 9 章）
+- dplyr 分组（第 10 章）
+- dplyr 合并（第 11 章）
+- 简易画图
+- 简易回归
 
 ## Week 4 ggplot2 画图
 
 ## Week 5 文本数据、正则表达式
 
-## Week 6 类别数据、时间数据、回归模型(?)
+## Week 6 类别数据、时间数据、普通回归
 
 ## Week 7 驳杂数据
 
@@ -64,7 +75,6 @@ tidyverse 链接
 ## Week 9 模型与画图进阶篇
 
 ## Week 10 空间数据、网络数据
-
 
 ## 说明
 
