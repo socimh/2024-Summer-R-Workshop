@@ -26,14 +26,10 @@ statart 和 tidyverse 链接
 - [Hadley Wickham](https://hadley.nz/) 的 [R for Data Science (2e)](https://r4ds.hadley.nz/)
 - 北大数学 李东风老师 [R 语言教程](https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html)
 - 川师物理 王敏杰老师 [数据科学中的 R 语言](https://bookdown.org/wangminjie/R4DS/author.html)
-<!-- 
-- HE Lingxiao [R 数据分析入门](https://bookdown.org/lhe/a-quick-start-on-data-analysis-in-r/#%E6%9C%AC%E4%B9%A6%E8%AF%B4%E6%98%8E)
-- 黄湘云 [R 语言数据分析实战](https://bookdown.org/xiangyun/data-analysis-in-action/)
-- Hadley Wickham 的 [ggplot2: elegant graphics for data analysis (3e)](https://ggplot2-book.org/statistical-summaries)
-- Edzer Pebesma [Geocomputation with R (2e)](https://r.geocompx.org/) 
--->
 
 还有数不清的在线、免费教科书，可以在 [bookdown](https://bookdown.org/home/archive/) 等网站上找到。
+
+**Zoom 会议链接见微信群；或者直接打开 Zoom，“加入会议”那里点下拉小箭头，找到历史会议，原来的会议室进去就行。**
 
 ## Week 1 概览
 
