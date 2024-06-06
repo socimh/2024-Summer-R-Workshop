@@ -1,8 +1,9 @@
 ## 2024 R 语言 tidyverse 入门工作坊
 
-沈明宏（mhshenaa@connect.ust.hk）
+> 点击标题可回到 Github
+<!-- [点击回到 Github](https://github.com/socimh/2024-Summer-R-Workshop) -->
 
-[点击回到 Github](https://github.com/socimh/2024-Summer-R-Workshop)
+沈明宏（mhshenaa@connect.ust.hk）
 
 ## 实用链接
 
@@ -10,14 +11,12 @@
 
 - [在线讲义](https://socimh.github.io/intro2tidy/)
 - [每周的代码和作业等](https://github.com/socimh/2024-Summer-R-Workshop)
+- [疑难问题搜集](https://docs.qq.com/doc/DZWdQREVuUEtTV0l4?scene=45af37bc0fcf6a8f5e1ec050JkZHs1)
 
-statart 链接
+statart 和 tidyverse 链接
 
 - [statart 官网](https://socimh.github.io/statart/index.html)
 - [statart 函数大全](https://socimh.github.io/statart/reference/index.html)
-
-tidyverse 链接
-
 - [tidyverse 官网](https://www.tidyverse.org/packages/)
 - [dplyr 官网](https://dplyr.tidyverse.org/)
 - [ggplot2 官网](https://ggplot2.tidyverse.org/)
