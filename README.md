@@ -15,11 +15,8 @@
 
 statart 和 tidyverse 链接
 
-- [statart 官网](https://socimh.github.io/statart/index.html)
-- [statart 函数大全](https://socimh.github.io/statart/reference/index.html)
-- [tidyverse 官网](https://www.tidyverse.org/packages/)
-- [dplyr 官网](https://dplyr.tidyverse.org/)
-- [ggplot2 官网](https://ggplot2.tidyverse.org/)
+- [statart 官网](https://socimh.github.io/statart/index.html)、[statart 函数大全](https://socimh.github.io/statart/reference/index.html)
+- [tidyverse 官网](https://www.tidyverse.org/packages/)、[dplyr 官网](https://dplyr.tidyverse.org/)、[ggplot2 官网](https://ggplot2.tidyverse.org/)
 
 一些教材链接
 
@@ -29,9 +26,13 @@ statart 和 tidyverse 链接
 
 还有数不清的在线、免费教科书，可以在 [bookdown](https://bookdown.org/home/archive/) 等网站上找到。
 
-**Zoom 会议链接见微信群；或者直接打开 Zoom，“加入会议”那里点下拉小箭头，找到历史会议，原来的会议室进去就行。**
+## 时间地点
 
-## Week 1 概览
+- Zoom 会议链接见微信群；
+- 或者直接打开 Zoom，“加入会议”那里点击下拉小箭头，找到历史会议，原来的会议室进去就行。
+- 时间一般是每周二晚上 19:30-21:00，具体以下方为准。
+
+## Week 1 概览（6月4日）
 
 > 下面 1.2 表示讲义第 1 章第 2 节，Week1-0.R 表示相应 R 代码文件。后同。
 
@@ -44,7 +45,7 @@ statart 和 tidyverse 链接
 - 浏览 tibble 数据（3.1-3.2）
 - [Zoom 录像回放](https://hkust.zoom.us/rec/share/BctFpkiuSJ-Fu_My1Iu4FZjspod3VcfE2hc8B8Llf2VXzjyNbvurA4cLjx_09zkw.u9NJYutAgH8op6MG )
 
-## Week 2 清理数据
+## Week 2 清理数据（6月11日）
 
 - 浏览 tibble 变量（3.3）
 - dplyr 排序（第 4 章）
@@ -53,7 +54,7 @@ statart 和 tidyverse 链接
 - dplyr 的选取或删除（第 7 章）
 - dplyr 的修改或新建（第 8 章）
 
-## Week 3 统计数据、简易画图、简易回归
+## Week 3 统计数据、简易画图、简易回归（6月17日 【周一】）
 
 - dplyr 统计（第 9 章）
 - dplyr 分组（第 10 章）
@@ -61,19 +62,19 @@ statart 和 tidyverse 链接
 - 简易画图
 - 简易回归
 
-## Week 4 ggplot2 画图
+## Week 4 ggplot2 画图（6月25日）
 
-## Week 5 文本数据、正则表达式
+## Week 5 文本数据、正则表达式（7月2日）
 
-## Week 6 类别数据、时间数据、普通回归
+## Week 6 类别数据、时间数据、普通回归（7月9日 【可能晚些开始】）
 
-## Week 7 驳杂数据
+## Week 7 驳杂数据（7月23日 【跳过一周】）
 
-## Week 8 高维度数据
+## Week 8 高维度数据（8月6日 【跳过一周】）
 
-## Week 9 模型与画图进阶篇
+## Week 9 模型与画图进阶篇（8月13日）
 
-## Week 10 空间数据、网络数据
+## Week 10 空间数据、网络数据（8月20日）
 
 ## 说明
 
