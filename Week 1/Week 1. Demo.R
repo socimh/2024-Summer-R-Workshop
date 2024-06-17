@@ -73,5 +73,3 @@ data_folder <- "path_to_folder"
 file.path(data_folder, "abc.dta") # 自动加上 /
 paste0(data_folder, "/abc.dta") # 两个字符简单相连
 str_glue("{data_folder}/abc.dta") # 用 {} 括起来
-
-

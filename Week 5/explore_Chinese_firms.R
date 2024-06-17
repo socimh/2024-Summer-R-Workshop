@@ -1,5 +1,3 @@
-
-
 pacman::p_load(tidyverse, statart)
 
 # Load the data

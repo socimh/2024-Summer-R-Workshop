@@ -55,17 +55,19 @@ statart 和 tidyverse 链接
 -   dplyr 的选取或删除（第 6 、 7 章）
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/2Cx0Gtdakqu7yJu17TcsRHJUOBXU02aQnMaCVpCvjGZxlECuXth9Gj3OgbSnpQiL.j6BskjhHfKlC-fBl)
 
-## Week 3 统计数据、简易画图、简易回归（6月17日 【周一】）
+## Week 3 统计数据（6月18日）
 
 -   dplyr 的选取或删除（第 6 、7 章）
 -   dplyr 的修改或新建（第 6 、8 章）
 -   dplyr 统计（第 9 章）
 -   dplyr 分组（第 10 章）
+
+
+## Week 4 数据可视化（6月25日）
+
 -   dplyr 合并（第 11 章）
 -   简易画图
--   简易回归
-
-## Week 4 ggplot2 画图（6月25日）
+-   ggplot2 画图
 
 ## Week 5 文本数据、正则表达式（7月2日）
 

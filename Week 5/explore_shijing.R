@@ -1,5 +1,3 @@
-
-
 pacman::p_load(tidyverse, statart)
 
 # Load the data
@@ -13,7 +11,7 @@ glimpse(tb)
 tb <- tb %>%
   unnest_longer(content) %>%
   mutate(
-    paragraph = row_number(), 
+    paragraph = row_number(),
     .by = "title"
   )
 

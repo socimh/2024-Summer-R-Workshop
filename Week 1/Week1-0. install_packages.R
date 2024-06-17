@@ -1,4 +1,3 @@
-
 # ===========================================================
 ###################### Install Packages ######################
 # ===========================================================
@@ -39,4 +38,3 @@ tibble::as_tibble(a = 1)
 # 3. pacman::p_load(...)
 # This is the most convenient way to load multiple packages
 pacman::p_load(tidyverse, statart, flextable)
-
