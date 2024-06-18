@@ -10,7 +10,7 @@ pacman::p_load(tidyverse, statart)
 
 path <- "D:/R/Teaching/2024 Summer R Workshop/Week 3/participants_deidentified.csv"
 tb <- read_data(path)
-
+tb
 
 # ===========================================================
 ##################### select columns #######################
@@ -30,10 +30,11 @@ tb %>%
 # Also, we can pull() a tibble column to a vector
 tb %>%
   names() %>%
-  as_tibble()
+  as_tibble() # convert many types of objects to tibbles
 
-tb %>%
-  pull(2)
+tb %>% select(2)
+tb %>% pull(2) # pull() extracts a column to a vector
+
 
 # select() is used to select columns
 tb %>%
@@ -56,7 +57,7 @@ tb %>%
 tb %>%
   filter(id > 50)
 
-# Here, `clean_data_result == "未清洗"` is a logical condition
+# Here, `id > 50` is a logical condition
 
 # It is essentially a logical vector
 pull(tb, id) > 50
@@ -91,9 +92,9 @@ tb %>%
   filter(!is.na(prob_clean_data_invalid)) # ! means "not"
 
 tb %>%
-  filter(id >= 31 & id <= 50)
+  filter(id >= 31 & id <= 50) # & means "and"
 tb %>%
-  filter(id >= 31 | is.na(prob_clean_data_invalid))
+  filter(id >= 31 | is.na(prob_clean_data_invalid)) # | means "or"
 
 
 # ===========================================================
@@ -123,6 +124,7 @@ tb %>%
 
 tb %>%
   slice_sample(n = 5)
+
 tb %>%
   slice_sample(n = 5) %>%
   set_seed(20240618) # set_seed() for reproducibility
@@ -131,6 +133,7 @@ tb %>%
 # ===========================================================
 ############## modify or create new columns ################
 # ===========================================================
+
 
 # mutate() is used to modify or create new columns
 tb %>%
@@ -144,7 +147,8 @@ tb %>%
     id1 = id + 1000,
     id2 = id + 2000,
     id3 = id + 3000
-  )
+  ) %>%
+  relocate(s_match("id*"))
 
 tb %>%
   select(s_match("software*"))
@@ -167,7 +171,58 @@ tb %>%
   ) %>%
   relocate(s_match("software*"))
 
+tb %>%
+  mutate(
+    clean_data_result = na_if_value(clean_data_result, "未清洗"),
+    prob_clean_data_invalid =
+      value_if_na(prob_clean_data_invalid, FALSE)
+  )
 
+tb %>%
+  mutate(
+    id_4g = cut_quantile(id),
+    id_5g = cut_quantile(id, 5)
+  ) %>%
+  tab(id_5g)
+
+tb %>%
+  mutate(
+    id_6g = cut_breaks(
+      id, breaks = c(10, 20, 30, 40, 50)
+    )
+  ) %>%
+  tab(id_6g)
+
+# If you really want to update the data, use the assignment operator <-
+tb <- tb %>%
+  mutate(
+    id_6g = cut_breaks(
+      id, breaks = c(10, 20, 30, 40, 50)
+    )
+  )
+
+# Three forms of the same thing
+c(10, 20, 30, 40, 50)
+seq(10, 50, 10)
+1:5*10
+
+tb %>%
+  tab(id_6g)
+
+
+# Binary variables
+c(TRUE, FALSE, TRUE) # logical vector
+# Categorical variables
+factor(1:3, labels = c("Disagree", "Neutral", "Agree"))
+
+tmp_tb <- tibble(
+  x = factor(c(1:3, 3), labels = c("Disagree", "Neutral", "Agree")),
+  y = 1:4
+)
+
+tmp_tb
+tmp_tb %>%
+  regress_coef(y ~ x)
 
 # ===========================================================
 ################### Get summary statistics ##################
@@ -176,6 +231,8 @@ tb %>%
 # summ() is used for continuous variables
 tb %>% summ()
 tb %>% summ(duration) # only for the duration column
+tb %>%
+  tabstat(duration, .by = country)
 
 tb %>%
   # Remove the outlier
@@ -185,6 +242,13 @@ tb %>%
     duration = duration / 60
   ) %>%
   summ(duration)
+
+tb %>%
+  summarise(
+    mean_duration = mean(duration),
+    sd_duration = sd(duration)
+  )
+
 
 # ===========================================================
 # Quickly plot a histogram of the duration by using s_plot()

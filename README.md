@@ -1,17 +1,15 @@
 ## 2024 R 语言 tidyverse 入门工作坊
 
-> 点击标题可回到 Github
-
 <!-- [点击回到 Github](https://github.com/socimh/2024-Summer-R-Workshop) -->
 
-沈明宏（[mhshenaa\@connect.ust.hk](mailto:mhshenaa@connect.ust.hk){.email}）
+沈明宏（[mhshenaa\@connect.ust.hk](mailto:mhshenaa@connect.ust.hk)）
 
 ## 实用链接
 
 工作坊链接
 
 -   [在线讲义](https://socimh.github.io/intro2tidy/)
--   [每周的代码和作业等](https://github.com/socimh/2024-Summer-R-Workshop)
+-   [每周的代码和作业等（回到 Github）](https://github.com/socimh/2024-Summer-R-Workshop)
 -   [疑难问题搜集 (Q&A)](https://docs.qq.com/doc/DZWdQREVuUEtTV0l4?scene=45af37bc0fcf6a8f5e1ec050JkZHs1)
 
 statart 和 tidyverse 链接
@@ -52,28 +50,36 @@ statart 和 tidyverse 链接
 -   浏览 tibble 数据（第3章）
 -   dplyr 排序（第 4 章）
 -   magrittr 管道（第 5 章）
--   dplyr 的选取或删除（第 6 、 7 章）
+-   dplyr 的选取或删除（第 6 章）
+-   分析宋朝官员数据（explore\_song\_officials.R）
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/2Cx0Gtdakqu7yJu17TcsRHJUOBXU02aQnMaCVpCvjGZxlECuXth9Gj3OgbSnpQiL.j6BskjhHfKlC-fBl)
 
 ## Week 3 统计数据（6月18日）
 
--   dplyr 的选取或删除（第 6 、7 章）
+-   第二周作业讲解
+-   dplyr 的选取或删除（第 7 章）
 -   dplyr 的修改或新建（第 6 、8 章）
 -   dplyr 统计（第 9 章）
--   dplyr 分组（第 10 章）
-
+-   分析工作坊问卷数据（Week 3-1.R 和 Week 3-2.R 等）
+-   [Zoom 录像回放](https://hkust.zoom.us/rec/share/oQM37hEeBRMvhiNsuR6LeBS8y4hmtmh2RKeZehGdU7IKChvrRTljfhlnRSR9DP1a.maAyum5DEeCJ6FLE)
 
 ## Week 4 数据可视化（6月25日）
 
--   dplyr 合并（第 11 章）
--   简易画图
+-   dplyr 分组（第 10 章）
+-   s_plot() 快速画图
 -   ggplot2 画图
+-   分析武汉马拉松运动员数据
 
 ## Week 5 文本数据、正则表达式（7月2日）
 
-## Week 6 类别数据、时间数据、普通回归（7月9日 【可能晚些开始】）
+-   分析《诗经》数据
+
+## Week 6 类别数据、时间数据、回归模型（7月9日 【可能晚些开始】）
 
 ## Week 7 驳杂数据（7月23日 【跳过一周】）
+
+-   dplyr 合并（第 11 章）
+-   分析中国省份简写数据
 
 ## Week 8 高维度数据（8月6日 【跳过一周】）
 
