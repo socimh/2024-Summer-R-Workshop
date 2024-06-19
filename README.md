@@ -51,7 +51,7 @@ statart 和 tidyverse 链接
 -   dplyr 排序（[第 4 章](https://socimh.github.io/intro2tidy/dplyr-sort.html)）
 -   magrittr 管道（[第 5 章](https://socimh.github.io/intro2tidy/dplyr-pipe.html)）
 -   dplyr 的选取或删除（[第 6 章](https://socimh.github.io/intro2tidy/dplyr-grammar.html)）
--   分析宋朝官员数据（explore\_song\_officials.R）
+-   分析宋朝官员数据（[explore\_song\_officials.R](https://github.com/socimh/2024-Summer-R-Workshop/blob/main/Week%202/explore_Song_officials.R)）
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/2Cx0Gtdakqu7yJu17TcsRHJUOBXU02aQnMaCVpCvjGZxlECuXth9Gj3OgbSnpQiL.j6BskjhHfKlC-fBl)
 
 ## Week 3 统计数据（6月18日）
@@ -60,7 +60,7 @@ statart 和 tidyverse 链接
 -   dplyr 的选取或删除（[第 7 章](https://socimh.github.io/intro2tidy/dplyr-select.html)）
 -   dplyr 的修改或新建（[第 6](https://socimh.github.io/intro2tidy/dplyr-grammar.html) 、[8 章](https://socimh.github.io/intro2tidy/dplyr-mutate.html)）
 -   dplyr 统计（[第 9 章](https://socimh.github.io/intro2tidy/dplyr-stat.html)）
--   分析工作坊问卷数据（Week 3-1.R 和 Week 3-2.R 等）
+-   分析工作坊问卷数据（[Week 3-1.R 和 Week 3-2.R 等](https://github.com/socimh/2024-Summer-R-Workshop/tree/main/Week%203)）
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/oQM37hEeBRMvhiNsuR6LeBS8y4hmtmh2RKeZehGdU7IKChvrRTljfhlnRSR9DP1a.maAyum5DEeCJ6FLE)
 
 ## Week 4 数据可视化（6月25日）
