@@ -70,7 +70,6 @@ statart 和 tidyverse 链接
 - s_plot() 快速画图
 - ggplot2 画图（[王敏杰 22 章](https://bookdown.org/wangminjie/R4DS/tidyverse-ggplot2-geom.html)、[23 章](https://bookdown.org/wangminjie/R4DS/tidyverse-ggplot2-scales.html)）
 - 钻石数据可视化
-- 武汉马拉松运动员数据可视化
 
 ## Week 5 文本数据、正则表达式（7 月 2 日）
 

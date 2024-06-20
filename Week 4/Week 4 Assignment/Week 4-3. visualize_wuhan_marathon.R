@@ -16,8 +16,8 @@ pacman::p_load(
 showtext_auto()
 showtext_opts(dpi = 300)
 
-run <- readxl::read_excel(
-  "D:/R/Teaching/2024 Summer R Workshop/Week 4/汉马逐公里数据.xlsx",
+run <- read_data(
+  "D:/R/Teaching/2024 Summer R Workshop/Week 4/Week 4 Assignment/汉马逐公里数据.xlsx",
 ) %>%
   # clean some variables
   mutate(
@@ -43,21 +43,11 @@ run %>%
   summ()
 
 run %>%
-  s_plot(distance, heart_rate)
-
-run %>%
-  s_plot(speed, power)
+  s_plot(speed)
 
 run %>%
   filter(heart_rate > 150) %>%
   s_plot(heart_rate, speed)
-
-run %>%
-  mutate(
-    stride_length = parse_number(stride_length)
-  ) %>%
-  s_plot(stride_length, speed) +
-  labs(y = "速度 (m/s)")
 
 
 # ===========================================================

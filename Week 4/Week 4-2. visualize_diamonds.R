@@ -376,3 +376,79 @@ diamonds %>%
 # See https://ggplot2.tidyverse.org/reference/index.html#aesthetics.
 # Skip useless or complicated functions (e.g., position_dodge() or guide_axis())
 # that we have not discussed yet.
+
+
+# ===========================================================
+################# dplyr/statart + ggplot2 ###################
+# ===========================================================
+
+# max price by cut
+diamonds %>%
+  summ(price, .by = cut) %>%
+  ggplot() +
+  aes(cut, max) +
+  geom_col(
+    fill = "gray", # fill color
+    color = "black", # border color
+  ) +
+  theme_bw()
+
+# mean price by cut and color
+diamonds %>%
+  summ(price, .by = cut:color) %>%
+  ggplot() +
+  aes(cut, color, fill = mean) +
+  geom_raster() +
+  scale_fill_viridis_c() +
+  theme_bw()
+
+# frequency of cut-color combinations
+diamonds %>%
+  mutate(
+    carat100g = cut_length(carat, 100),
+    price100g = cut_length(price, 100)
+  ) %>%
+  s_plot(carat100g, price100g) +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
+# the relationship between carat, depth, and price (continuous)
+diamonds %>%
+  mutate(
+    carat100g = cut_length(carat, 100),
+    depth100g = cut_length(depth, 100)
+  ) %>%
+  summ(price, .by = carat100g:depth100g) %>%
+  ggplot() +
+  aes(carat100g, depth100g, fill = mean) +
+  geom_raster() +
+  scale_fill_viridis_c() +
+  theme_bw() +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
+# the relationship between carat, depth, and price (discrete)
+diamonds %>%
+  mutate(
+    carat100g = cut_length(carat, 100),
+    depth100g = cut_length(depth, 100)
+  ) %>%
+  summ(price, .by = carat100g:depth100g) %>%
+  mutate(price5g = cut_quantile(mean, 5)) %>%
+  ggplot() +
+  aes(carat100g, depth100g, fill = price5g) +
+  geom_raster() +
+  scale_fill_viridis_d() +
+  theme_bw() +
+  theme(
+    axis.text = element_blank(),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank()
+  )
+
