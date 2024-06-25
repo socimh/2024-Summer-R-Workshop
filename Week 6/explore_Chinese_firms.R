@@ -170,3 +170,116 @@ tb2011 %>%
   geom_smooth() +
   statart:::theme_statart()
 
+
+
+tb2011 %>%
+  tab(学历)
+
+tb2011 %>%
+  s_plot(学历)
+
+tb2011 %>%
+  mutate(
+    edu7g = case_when(
+      str_detect(学历, "小学") ~ 1,
+      str_detect(学历, "初中") ~ 2,
+      str_detect(学历, "高中|中职") ~ 3,
+      str_detect(学历, "专科") ~ 4,
+      str_detect(学历, "本科") ~ 5,
+      str_detect(学历, "硕士") ~ 6,
+      str_detect(学历, "博士") ~ 7
+    )
+  ) %>%
+  tab(edu7g)
+
+demo_tb <- tb2011 %>%
+  mutate(
+    edu7g = case_when(
+      str_detect(学历, "小学") ~ 1,
+      str_detect(学历, "初中") ~ 2,
+      str_detect(学历, "高中|中职") ~ 3,
+      str_detect(学历, "专科") ~ 4,
+      str_detect(学历, "本科") ~ 5,
+      str_detect(学历, "硕士") ~ 6,
+      str_detect(学历, "博士") ~ 9
+    ) %>%
+      factor(
+        labels = c(
+          "小学",
+          "初中",
+          "高中",
+          "大专",
+          "本科",
+          "硕士",
+          "博士"
+        )
+      )
+  ) %>%
+  tab(edu7g)
+
+demo_tb
+
+demo_tb %>%
+  mutate(
+    edu_num = as_numeric(edu7g),
+    edu_chr = as_character(edu7g)
+  ) %>%
+  relocate(starts_with("edu"))
+
+demo_tb %>%
+  mutate(
+    edu7g = fct_reorder(edu7g, n)
+  ) %>%
+  arrange(edu7g)
+
+demo_tb %>%
+  mutate(
+    edu7g = fct_rev(edu7g)
+  ) %>%
+  arrange(edu7g)
+
+demo_tb %>%
+  mutate(
+    edu7g = edu7g %>%
+      fct_relabel(
+        ~ str_replace(., "高中", "高中/中职")
+      )
+  ) %>%
+  arrange(edu7g)
+
+demo_tb %>%
+  mutate(
+    edu7g = edu7g %>%
+      as_character() %>%
+      str_replace("高中", "高中/中职") %>%
+      factor(
+        levels = c(
+          "小学",
+          "初中",
+          "高中/中职",
+          "大专",
+          "本科",
+          "硕士",
+          "博士"
+        )
+      )
+  ) %>%
+  arrange(edu7g)
+
+tb2011 %>%
+  tab(str_extract(交易代码, "\\w{2}$"))
+
+
+# Factors are similar to categorical variables.
+# The only reason to convert characters to factors ...
+# ... is to specify the order of the levels!
+
+tb2011 %>%
+  slice_sample(n = 10) %>%
+  set_seed(20240625) %>%
+  mutate(
+    id = factor(ID)
+  ) %>%
+  s_plot(id)
+
+# Converting numbers to factors can be useful for grouping.
