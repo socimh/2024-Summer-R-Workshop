@@ -26,7 +26,8 @@ starwars %>%
 
 # QUESTION 2b. Only keep the characters whose eye, skin, and hair colors are the same.
 starwars %>%
-  filter(eye_color == skin_color & skin_color == hair_color)
+  filter(eye_color == skin_color & skin_color == hair_color) %>%
+  filter(hair_color != "unknown")
 
 # QUESTION 2c. What is the average height of the characters whose hair color is black?
 starwars %>%
@@ -37,13 +38,24 @@ starwars %>%
 starwars %>%
   filter(sex == "male") %>%
   slice_sample(n = 5) %>%
-  set_seed(20240625) %>%
-  view()
+  view() %>%
+  set_seed(20240625)
 
 # QUESTION 2e. Compare the age (in 2024) of characters across gender.
 starwars %>%
   mutate(age = 2024 - birth_year) %>%
   summ(age, .by = gender)
+
+starwars %>%
+  mutate(age = 2024 - birth_year) %>%
+  filter(gender == "masculine") %>%
+  summ(age)
+
+starwars %>%
+  mutate(age = 2024 - birth_year) %>%
+  filter(gender == "feminine") %>%
+  summ(age)
+
 
 # QUESTION 2f. What are the top 3 most common homeworlds?
 starwars %>%
@@ -56,3 +68,8 @@ starwars %>%
   tab(homeworld, .desc = TRUE) %>%
   filter(!is.na(homeworld)) %>%
   head(3)
+
+starwars %>%
+  tab(homeworld, .desc = TRUE) %>%
+  filter(!is.na(homeworld)) %>%
+  head(5)

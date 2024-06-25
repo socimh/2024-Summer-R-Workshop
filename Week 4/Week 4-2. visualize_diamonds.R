@@ -1,5 +1,5 @@
-# Goal: Clean the half-marathon data
-# Import: 汉马逐公里数据.xlsx
+# Goal: Visualize the diamonds data
+# Import: diamonds
 # Output: plot.png
 
 # ===========================================================
@@ -21,6 +21,10 @@ data(diamonds)
 diamonds %>%
   summ()
 
+diamonds %>%
+  summ(carat)
+
+# hist in Stata
 diamonds %>%
   s_plot(carat)
 

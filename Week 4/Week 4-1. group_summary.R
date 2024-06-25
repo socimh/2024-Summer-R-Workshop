@@ -12,6 +12,7 @@ pacman::p_load(
 )
 
 data(diamonds)
+?diamonds
 
 # ===========================================================
 ##################### one-variable summary ##################
@@ -82,6 +83,14 @@ diamonds %>%
   ) %>%
   ungroup()
 
+# This is more concise:
+diamonds %>%
+  mutate(
+    cut_avg_price = mean(price, na.rm = TRUE),
+    .by = cut
+  )
+
+
 # Not identical (different data structure)
 identical(
   diamonds,
@@ -109,6 +118,11 @@ diamonds %>%
 diamonds %>%
   summ(x:z, .by = cut) %>%
   print(n = Inf)
+
+diamonds %>%
+  summ(x:z, .by = c(cut, clarity)) %>%
+  print(n = Inf)
+
 
 # arrange() by variable names
 diamonds %>%
@@ -175,9 +189,35 @@ diamonds %>%
 diamonds %>%
   tab(clarity, .by = c(cut, color))
 
+# tidyselect
+select()
+ds()
+across() # in mutate()
+pivot_longer()
+pivot_wider()
+
+# data-masking
+mutate()
+rename()
+transmute() # nearly 淘汰掉
+summarsie()
+reframe()
+count()
+
+# both tidyselect and data-masking
+s_select()
+tab()
+fre()
+summ()
+
 # Even more, we can tab() an expression!
 diamonds %>%
   tab(high_price = price >= 4e3, .by = c(cut, color)) %>%
+  print(n = Inf)
+
+diamonds %>%
+  tab(high_price = price >= 4e3, .by = c(cut, color)) %>%
+  filter(high_price) %>%
   print(n = Inf)
 
 # What is the difference?

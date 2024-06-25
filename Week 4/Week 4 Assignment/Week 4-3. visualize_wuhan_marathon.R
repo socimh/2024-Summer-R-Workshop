@@ -140,6 +140,7 @@ gg <- run %>%
   theme(axis.text.y = element_text(
     colour = c(rep("black", 6), "firebrick")
   ))
+gg
 
 # I prefer to save all plots with the same name.
 # In other words, the last plot will overwrite the previous one.
