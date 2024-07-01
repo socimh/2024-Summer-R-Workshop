@@ -76,8 +76,8 @@ statart 和 tidyverse 链接
 -   第四周作业讲解
 -   正则表达式（[R4DS Ch15](https://r4ds.hadley.nz/regexps)、[王敏杰 17 章](https://bookdown.org/wangminjie/R4DS/tidyverse-stringr.html)）
 -   stringr 处理文本（[R4DS Ch14](https://r4ds.hadley.nz/strings.html)）
--   分析全国地铁支付方式数据
 -   分析《诗经》数据
+-   分析全国地铁支付方式数据
 
 ## Week 6 类别数据、时间数据、回归模型（7 月 9 日 【可能晚些开始】）
 

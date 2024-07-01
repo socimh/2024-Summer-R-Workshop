@@ -188,7 +188,8 @@ tb %>%
 tb %>%
   mutate(
     id_6g = cut_breaks(
-      id, breaks = c(10, 20, 30, 40, 50)
+      id,
+      breaks = c(10, 20, 30, 40, 50)
     )
   ) %>%
   tab(id_6g)
@@ -197,14 +198,15 @@ tb %>%
 tb <- tb %>%
   mutate(
     id_6g = cut_breaks(
-      id, breaks = c(10, 20, 30, 40, 50)
+      id,
+      breaks = c(10, 20, 30, 40, 50)
     )
   )
 
 # Three forms of the same thing
 c(10, 20, 30, 40, 50)
 seq(10, 50, 10)
-1:5*10
+1:5 * 10
 
 tb %>%
   tab(id_6g)

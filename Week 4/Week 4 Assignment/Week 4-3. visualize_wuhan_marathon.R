@@ -64,7 +64,8 @@ gg <- run %>%
   geom_point(aes(fill = elevation, size = segment), shape = 21) +
   geom_hline(
     yintercept = 3.98, color = "firebrick",
-    lwd = 1, linetype = "dashed") +
+    lwd = 1, linetype = "dashed"
+  ) +
   scale_x_continuous(
     labels = scales::label_number(suffix = " 公里")
   ) +
@@ -94,7 +95,9 @@ ggsave(path, gg, width = 5, height = 3.2)
 ######################## pace trend #########################
 # ===========================================================
 
-avg_pace <- run %>% summ(as.numeric(pace)) %>% pull(mean)
+avg_pace <- run %>%
+  summ(as.numeric(pace)) %>%
+  pull(mean)
 pace_breaks <- seq(240, 270, 5) %>% c(avg_pace)
 number_to_pace <- function(number) {
   min <- number %/% 60
@@ -149,4 +152,3 @@ gg
 
 # If you want to keep all plots, you can change the path.
 ggsave(path, gg, width = 4.5, height = 3.2)
-

@@ -253,7 +253,7 @@ diamonds %>%
   aes(cut, price) +
   geom_violin(aes(fill = cut)) +
   geom_boxplot(width = .1, outliers = FALSE) +
-  facet_wrap(~ carat3g) +
+  facet_wrap(~carat3g) +
   theme_bw() +
   labs(
     x = "Cut",
@@ -278,7 +278,7 @@ diamonds %>%
   scale_x_discrete(
     labels = c("Fair", "Good", "Very\nGood", "Premium", "Ideal")
   ) +
-  facet_wrap(~ carat3g) +
+  facet_wrap(~carat3g) +
   theme_bw() +
   labs(
     x = "Cut",
@@ -305,7 +305,7 @@ diamonds %>%
     breaks = seq(0, 18e3, 3e3), # 18e3 = 18,000
     labels = scales::dollar_format()
   ) +
-  facet_wrap(~ carat3g) +
+  facet_wrap(~carat3g) +
   theme_bw() +
   labs(
     x = "Cut",
@@ -339,7 +339,7 @@ diamonds %>%
     # However, I still recommend you to use it instead of other alternatives.
     guide = "none"
   ) +
-  facet_wrap(~ carat3g) +
+  facet_wrap(~carat3g) +
   theme_bw() +
   labs(
     x = "Cut",
@@ -455,4 +455,3 @@ diamonds %>%
     axis.ticks = element_blank(),
     panel.grid = element_blank()
   )
-

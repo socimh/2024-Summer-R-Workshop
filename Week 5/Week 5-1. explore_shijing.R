@@ -16,7 +16,7 @@ tb <- read_data(file)
 
 
 # ===========================================================
-###################### clean the data #######################
+##################### explore the data ######################
 # ===========================================================
 
 # Data cleaning
@@ -50,8 +50,6 @@ tb %>%
   summ(paragraph_length %% 10 == 0)
 tb %>%
   tab(paragraph_length %% 10 == 0)
-
-
 
 
 # ===========================================================
@@ -109,7 +107,7 @@ str_view(sentences, "(?<=\\s)\\w{10}(?=\\s)") # only the words
 
 
 # Wrapping up:
-# How to find the words with 10 characters in the sentences?
+# How to find the 10-character words?
 str_view(
   sentences,
   "(?<=\\s)\\w{10}(?=[\\s\\.?!])|^\\w{10}(?=\\s)"
@@ -123,21 +121,37 @@ str_view(
 #     start of the string,
 #     followed by a whitespace
 
+# How to use this regex in R?
+sentences %>%
+  str_extract(
+    "(?<=\\s)\\w{10}(?=[\\s\\.?!])|^\\w{10}(?=\\s)"
+  ) %>%
+  # remove NA elements
+  discard(is.na)
+
+# Another solution
+sentences %>%
+  str_split("\\s") %>%
+  flatten() %>%
+  str_c() %>%
+  str_extract("\\w{10}") %>%
+  discard(is.na)
+
 
 
 # ===========================================================
 ################### character analysis ######################
 # ===========================================================
 
-############# Single-word detection #############
+############# String detection #############
 # str_detect() returns a logical vector
 tb %>%
   filter(content %>% str_detect("女"))
 
 tb %>%
-  summ(content %>% str_detect("女"))
-tb %>%
   tab(content %>% str_detect("女"))
+tb %>%
+  summ(content %>% str_detect("女"))
 tb %>%
   summ(content %>% str_detect("我"), .by = chapter)
 tb %>%
@@ -146,7 +160,7 @@ tb %>%
   summ(content %>% str_detect("王"), .by = chapter)
 
 
-############# Regex detection #############
+############# String extraction #############
 # str_extract() returns the matched part
 tb %>%
   mutate(
@@ -160,6 +174,7 @@ tb <- tb %>%
       fct_relevel("风", "小雅", "大雅", "颂")
   )
 
+############# String analysis #############
 tb %>%
   summ(paragraph_length, .by = volumne) %>%
   mutate(
@@ -167,6 +182,7 @@ tb %>%
     percent = sum / sum(sum)
   )
 
+############# String visualization #############
 tb %>%
   summ(paragraph_length, .by = volumne) %>%
   mutate(
@@ -198,6 +214,7 @@ plot_tb %>%
   ggplot() +
   aes(volumne, title, fill = mean) +
   # Better for many ordered categories
+  # Not appropriate for this case
   geom_raster() +
   scale_fill_distiller(palette = "Blues", direction = 1) +
   theme_bw()
@@ -210,36 +227,42 @@ plot_tb %>%
   scale_fill_brewer(palette = "Blues", direction = 1) +
   theme_bw()
 
-
+############# String manipulation #############
 # str_replace() replaces the first matched part
 tb %>%
   mutate(
     content = content %>% str_replace("女", "男")
-  )
+  ) %>%
+  select(content)
 
 # str_replace_all() replaces all matched part
 tb %>%
   mutate(
     content = content %>% str_replace_all("。", "！")
-  )
+  ) %>%
+  select(content)
 
 tb %>%
   mutate(
     content = content %>% str_replace_all("\\w{2}(?=。)", "____")
-  )
+  ) %>%
+  select(content)
 
-
+############# String removal #############
 # str_remove() and str_remove_all() remove the matched part
 tb %>%
   mutate(
     content = content %>% str_remove("\\w{2}(?=。)")
-  )
+  ) %>%
+  select(content)
 
 tb %>%
   mutate(
     content = content %>% str_remove_all("\\w{2}(?=。)")
-  )
+  ) %>%
+  select(content)
 
+############# String joining #############
 # Two ways of joining strings
 tb %>%
   mutate(
@@ -254,6 +277,10 @@ tb %>%
   )
 
 
+
+# ===========================================================
+#################### advanced analysis ######################
+# ===========================================================
 # "(\\w)\\1" means a word character followed by the same word character
 # E.g., "关关", "萋萋". These are reduplications (叠词).
 str_view(fruit, "(\\w)\\1")
@@ -263,8 +290,9 @@ tb <- tb %>%
 
 tb %>%
   summ(
-    reduplication, .by = volumne, .stat = c("mean", "se")
-    )
+    reduplication,
+    .by = volumne, .stat = c("mean", "se")
+  )
 
 tb %>%
   filter(
