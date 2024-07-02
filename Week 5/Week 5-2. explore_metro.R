@@ -55,7 +55,8 @@ tb %>%
   filter(!t_union)
 
 tb %>%
-  tab2(alipay, wechat_pay)
+  fre2(alipay, wechat_pay)
+
 tb %>%
   filter(alipay & !wechat_pay)
 tb %>%

@@ -2,7 +2,7 @@
 
 <!-- [点击回到 Github](https://github.com/socimh/2024-Summer-R-Workshop) -->
 
-沈明宏（[mhshenaa@connect.ust.hk](mailto:mhshenaa@connect.ust.hk)）
+沈明宏（[mhshenaa\@connect.ust.hk](mailto:mhshenaa@connect.ust.hk)）
 
 ## 实用链接
 
@@ -78,6 +78,7 @@ statart 和 tidyverse 链接
 -   stringr 处理文本（[R4DS Ch14](https://r4ds.hadley.nz/strings.html)）
 -   分析《诗经》数据
 -   分析全国地铁支付方式数据
+-   [Zoom 录像回放](https://hkust.zoom.us/rec/share/xqBg8WBZIw3a9XlDmQh5dRK9bGCSys8cq8Hs_5roVsrNsk6SO_t_N-D-rdWsAVvF.eS81LV9CgQUzM7L1)
 
 ## Week 6 类别数据、时间数据、回归模型（7 月 9 日 【可能晚些开始】）
 

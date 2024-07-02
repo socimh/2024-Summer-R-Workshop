@@ -20,7 +20,7 @@ tb <- read_data(file)
 # ===========================================================
 
 # Data cleaning
-tb
+tb %>% tibble()
 glimpse(tb)
 
 # Reshape the data
@@ -45,6 +45,8 @@ tb %>%
   s_plot(paragraph_length)
 
 # paragraph_length is 10n (n is an integer)
+# + - * / %% %/%
+# a / b = c ...... d
 9:11 %% 10 # %% is the modulo operator (remainder of division 余数)
 tb %>%
   summ(paragraph_length %% 10 == 0)
@@ -55,6 +57,8 @@ tb %>%
 # ===========================================================
 ################### regular expression  #####################
 # ===========================================================
+
+# Regular expression (regex, 正则表达式)
 
 # Position
 str_view(fruit, "a")
@@ -71,13 +75,14 @@ str_view(fruit, "apple$|pepper$") # same as above
 
 # Quantifiers
 str_view(fruit, "p{2}")
-str_view(fruit, "p{1,2}")
+str_view(fruit, "p{1,3}")
 str_view(fruit, "pe")
 str_view(fruit, "p+e") # +: 1 or more
 str_view(fruit, "p*e") # *: 0 or more
 str_view(fruit, "p?e") # ?: 0 or 1
 
 # Metacharacters
+# In R, there is no '\', but only '\\'
 str_view(sentences, "\\w{10}") # \\w: word character
 str_view(sentences, "\\w{10}\\s") # \\s: whitespace
 str_view(sentences, "\\s\\w{10}\\s") # find the words with spaces around
@@ -95,6 +100,8 @@ str_view(telephones, "^\\d{10}") # \\d: digit
 str_view(telephones, "^\\d{3}\\s?\\d{3}")
 str_view(telephones, "^.{10}") # .: anything
 
+str_view(fruit, "^a.*e$") # .*: 0 or more of anything
+
 str_view(telephones, "^.*$") # .*: 0 or more of anything
 str_view(telephones, "^.+$") # .+: 1 or more of anything
 
@@ -105,16 +112,18 @@ str_view(sentences, "(?<=\\s)\\w{10}\\s") # (?<=a): preceded by a
 str_view(sentences, "\\s\\w{10}(?=\\s)") # (?=b): followed by b
 str_view(sentences, "(?<=\\s)\\w{10}(?=\\s)") # only the words
 
+str_view(sentences, "\\w{10}") # What's the difference?
+
 
 # Wrapping up:
 # How to find the 10-character words?
 str_view(
   sentences,
-  "(?<=\\s)\\w{10}(?=[\\s\\.?!])|^\\w{10}(?=\\s)"
+  "(?<=\\s)\\w{10}(?=[\\s\\.\\?!])|^\\w{10}(?=\\s)"
 )
 
 # Explain:
-# (?<=\\s)\\w{10}(?=[\\s\\.?!]):
+# (?<=\\s)\\w{10}(?=[\\s\\.\\?!]):
 #     preceded by a whitespace,
 #     followed by a whitespace, period, question mark, or exclamation mark
 # ^\\w{10}(?=\\s):
@@ -133,7 +142,7 @@ sentences %>%
 sentences %>%
   str_split("\\s") %>%
   flatten() %>%
-  str_c() %>%
+  str_c() %>% # all functions starting with str_...() come from stringr
   str_extract("\\w{10}") %>%
   discard(is.na)
 
@@ -231,7 +240,7 @@ plot_tb %>%
 # str_replace() replaces the first matched part
 tb %>%
   mutate(
-    content = content %>% str_replace("女", "男")
+    content = str_replace(content, "女", "男")
   ) %>%
   select(content)
 
@@ -270,6 +279,8 @@ tb %>%
     title = paste0(section, "·", title)
   )
 
+# In Python, a + b is equivalent to paste0(a, b)
+
 tb %>%
   mutate(
     # insert `section` and `title` into the string
@@ -283,6 +294,7 @@ tb %>%
 # ===========================================================
 # "(\\w)\\1" means a word character followed by the same word character
 # E.g., "关关", "萋萋". These are reduplications (叠词).
+str_view(fruit, "\\w{2}") # any two characters
 str_view(fruit, "(\\w)\\1")
 
 tb <- tb %>%
@@ -291,15 +303,18 @@ tb <- tb %>%
 tb %>%
   summ(
     reduplication,
-    .by = volumne, .stat = c("mean", "se")
+    .by = volumne,
+    .stat = c("mean", "se")
   )
 
 tb %>%
   filter(
     reduplication > 2 & volumne == "颂"
-  )
+  ) %>%
+  select(content)
 
 tb %>%
   filter(
-    reduplication > 2 & volumne == "风"
-  )
+    reduplication > 2 & volumne == "小雅"
+  ) %>%
+  select(content)

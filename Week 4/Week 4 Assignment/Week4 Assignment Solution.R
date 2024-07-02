@@ -42,6 +42,8 @@ run <- read_data(
     speed = 1000 / as_numeric(pace)
   )
 
+glimpse(run)
+
 
 # ===========================================================
 #################### data visualization ###################
@@ -59,12 +61,12 @@ run %>% s_plot(ground_contact)
 run %>% s_plot(speed, power)
 
 # QUESTION 3. Plot the relationship between stride_length and speed
-run %>% s_plot(stride_length, power) # wrong
+run %>% s_plot(stride_length, speed) # wrong
 run %>%
   mutate(
     stride_length = parse_number(stride_length)
   ) %>%
-  s_plot(stride_length, power) # correct
+  s_plot(stride_length, speed) # correct
 
 
 # QUESTION 4. Plot the relationship between distance and speed, and
@@ -78,7 +80,7 @@ run %>%
   scale_size_continuous(guide = "none") +
   statart:::theme_statart() +
   labs(
-    x = "Distance (km)",
-    y = "Speed (m/s)",
-    fill = "Heart Rate"
+    x = "距离 (km)",
+    y = "速度 (m/s)",
+    fill = "心率"
   )
