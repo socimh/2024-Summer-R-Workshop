@@ -87,10 +87,10 @@ statart 和 tidyverse 链接
 -   lubridate 处理时间数据（[R4DS Ch17](https://r4ds.hadley.nz/datetimes)）
 -   broom 和 tidy_coef() 提取回归模型结果（[王敏杰 51章](https://bookdown.org/wangminjie/R4DS/tidystats-broom.html)）
 -   分析中国上市公司领导数据
+-   [Zoom 录像回放](https://hkust.zoom.us/rec/share/Szb_FgVKYMf-XrAxRCJ7gN1beys_S7_m3KDk4OLGioMCCLJIeO6Y29hyb790dJAg.5uUPdRtvwoQtwe8H)
 
 ## Week 7 驳杂数据（7 月 23 日 【跳过一周】）
 
--   第六周作业讲解
 -   dplyr 合并（[第 11 章](https://socimh.github.io/intro2tidy/dplyr-join.html)）
 -   tidyr 转换长宽数据
 -   分析迁移轨迹数据
