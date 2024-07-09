@@ -19,16 +19,27 @@ glimpse(tb2011)
 
 tb2011 %>%
   # take a look at the redundant columns
-  tab(starts_with("..."))
+  tab(starts_with("...")) %>%
+  select(n:valid_cum)
 
 tb2011 <- tb2011 %>%
   # safely remove them
-  select(-starts_with("...")) %>%
+  select(-starts_with("..."))
+
+tb2011 %>%
   glimpse()
 
+
+# ===========================================================
+################ manipulate date variables ##################
+# ===========================================================
 tb2011 %>%
   arrange(任职日期) %>%
   print_interval(20)
+
+c(999, 4500, 9999) %>%
+  log10() %>%
+  ceiling()
 
 tb2011 %>%
   mutate(
@@ -41,6 +52,19 @@ tb2011 %>%
     digits = log10(任职日期) %>% ceiling()
   ) %>%
   filter(digits == 6)
+
+# Two ways of generating date variables
+# 1. From numeric:
+as.Date(0) # "1970-01-01"
+as.Date(1) # "1970-01-02"
+as.Date(365) # "1971-01-01"
+as.Date(1, origin = "1960-01-01") # "1960-01-02"
+
+# 2. From character:
+as.Date("1970-01-01") # "1970-01-01"
+as.Date("19700101") # wrong
+as.Date("19700101", format = "%Y%m%d")
+
 
 tb2011 %>%
   mutate(
@@ -75,6 +99,14 @@ tb2011 <- tb2011 %>%
   )
 
 tb2011 %>%
+  select(公告日期, announce_date, announce_date_wrong)
+
+tb2011 %>%
+  select(国际, country, chinese)
+
+
+
+tb2011 %>%
   slice(9) %>%
   pull(姓名)
 
@@ -92,6 +124,14 @@ tb2011 %>%
   geom_smooth() +
   coord_cartesian(ylim = c(0, .016)) +
   scale_y_continuous(labels = scales::percent_format())
+
+pi
+ceiling(pi)
+floor(pi)
+
+floor_date(as.Date(30), "month")
+floor_date(as.Date(31), "month")
+floor_date(as.Date(31), "year")
 
 tb2011 %>%
   mutate(
@@ -118,6 +158,15 @@ tb2011 %>%
   coord_cartesian(ylim = c(0, .016)) +
   scale_y_continuous(labels = scales::percent_format())
 
+library(lubridate)
+
+# year() extracts the year from a date
+# month() extracts the month from a date
+# day() extracts the day from a date
+# wday() extracts the day of the week from a date
+# quarter() extracts the quarter from a date
+# ...
+
 tb2011 %>%
   mutate(
     # Directly extract the year (as a number)
@@ -130,8 +179,6 @@ tb2011 %>%
   geom_smooth(se = FALSE) +
   coord_cartesian(ylim = c(0, .016)) +
   scale_y_continuous(labels = scales::percent_format())
-
-
 
 
 tb2011 %>%
@@ -181,11 +228,18 @@ tb2011 %>%
 
 
 
+# ===========================================================
+############## manipulate factor variables #################
+# ===========================================================
+
 tb2011 %>%
   tab(学历)
 
 tb2011 %>%
   s_plot(学历)
+
+library(showtext)
+showtext_auto()
 
 tb2011 %>%
   mutate(
@@ -226,7 +280,15 @@ demo_tb <- tb2011 %>%
   ) %>%
   tab(edu7g)
 
-demo_tb
+demo_tb %>%
+  ggplot() +
+  aes(edu7g, percent) +
+  # Avoid using geom_bar() for factors
+  geom_col()
+
+demo_tb %>%
+  s_plot(edu7g, n)
+
 
 demo_tb %>%
   mutate(
@@ -234,6 +296,9 @@ demo_tb %>%
     edu_chr = as_character(edu7g)
   ) %>%
   relocate(starts_with("edu"))
+
+# fct_...() functions are used to manipulate factors
+# Most of them reorders the levels of factors
 
 demo_tb %>%
   mutate(
@@ -243,9 +308,25 @@ demo_tb %>%
 
 demo_tb %>%
   mutate(
+    edu7g = fct_reorder(edu7g, n)
+  ) %>%
+  s_plot(edu7g, n)
+
+
+
+demo_tb %>%
+  mutate(
     edu7g = fct_rev(edu7g)
   ) %>%
   arrange(edu7g)
+
+
+demo_tb %>%
+  mutate(
+    edu7g = fct_rev(edu7g)
+  ) %>%
+  s_plot(edu7g, n)
+
 
 demo_tb %>%
   mutate(
@@ -256,6 +337,11 @@ demo_tb %>%
   ) %>%
   arrange(edu7g)
 
+1:2 %>% factor(labels = c("a", "b"))
+c("A", "B") %>% factor(labels = c("a", "b"))
+
+# The same as above
+# But much more complicated.
 demo_tb %>%
   mutate(
     edu7g = edu7g %>%
@@ -297,6 +383,10 @@ tb2011 %>%
   ) %>%
   s_plot(id)
 
+# These two lines are equivalent:
+# reg y i.x
+# lm(y ~ factor(x), tb)
+
 tb2011 %>%
   mutate(
     gender = case_when(
@@ -318,6 +408,35 @@ tb2011 <- tb2011 %>%
     female = gender == 1
   )
 
-glm(female ~ appoint_date, tb2011, family = "binomial") %>%
+
+
+# ===========================================================
+################ Clean model results ##################
+# ===========================================================
+
+# lm()
+# glm()
+# lmer()
+
+fit <- glm(female ~ appoint_date, tb2011, family = "binomial")
+
+fit %>% summary()
+
+library(broom)
+fit %>%
+  tidy() %>%
+  slice(2, 1)
+
+fit %>%
   tidy_coef() %>%
-  select(1:2)
+  slice(2, 1) %>%
+  select(1, 2)
+
+fit %>%
+  glance() %>%
+  print(width = Inf)
+
+fit %>%
+  augment()
+
+

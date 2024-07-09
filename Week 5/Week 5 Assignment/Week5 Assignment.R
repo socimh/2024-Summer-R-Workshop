@@ -27,13 +27,13 @@ tb %>%
   mutate(
     zhi_num = str_count(content, "之[。！？\\.\\?!]")
     ) %>%
-  summarise(sum(abac_num))
+  summarise(num = sum(zhi_num))
 
 # QUESTION 2. Filter sentences with exactly two "，" and only one "。".
 #             For example, "麟之趾，振振公子，于嗟麟兮。"
 tb %>%
   filter(
-    str_count(content, "，") == 2,
+    str_count(content, "，") == 2 &
     str_count(content, "。") == 1
   )
 
