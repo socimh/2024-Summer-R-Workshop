@@ -86,8 +86,7 @@ statart 和 tidyverse 链接
 -   forcats 处理类别数据（[R4DS Ch16](https://r4ds.hadley.nz/factors)、[王敏杰 18章](https://bookdown.org/wangminjie/R4DS/tidyverse-forcats.html)）
 -   lubridate 处理时间数据（[R4DS Ch17](https://r4ds.hadley.nz/datetimes)）
 -   broom 和 tidy_coef() 提取回归模型结果（[王敏杰 51章](https://bookdown.org/wangminjie/R4DS/tidystats-broom.html)）
--   分析工作坊问卷数据（下）
--   分析中国气温数据
+-   分析中国上市公司领导数据
 
 ## Week 7 驳杂数据（7 月 23 日 【跳过一周】）
 

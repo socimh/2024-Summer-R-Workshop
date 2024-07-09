@@ -1,4 +1,4 @@
-# Goal: Clean the half-marathon data
+# Goal: Clean the Shijing data
 # Import: shijing.json
 # Output: console output and plots
 
