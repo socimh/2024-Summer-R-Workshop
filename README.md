@@ -89,14 +89,21 @@ statart 和 tidyverse 链接
 -   分析中国上市公司领导数据
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/Szb_FgVKYMf-XrAxRCJ7gN1beys_S7_m3KDk4OLGioMCCLJIeO6Y29hyb790dJAg.5uUPdRtvwoQtwe8H)
 
-## Week 7 驳杂数据（7 月 24 日）
+## Week 7 驳杂数据（7 月 24 日 【周三】）
 
 -   tidyr 转换长宽数据（[王敏杰 15章](https://bookdown.org/wangminjie/R4DS/tidyverse-tidyr.html)）
 -   分析中国省份的简写
 -   分析日常生活、旅行轨迹
 -   分析《额尔古纳河右岸》小说
+-   [Zoom 录像回放](https://hkust.zoom.us/rec/share/eAezDSxt1-tNm5BRLSysmWWNm-VIiTdsKswSSydQiritMNIW5apXO3peQb_rsOno.DsV9A1wItdaoEYwI)
 
-## Week 8 高维度数据（8 月 6 日 【跳过一周】）
+## Week 7b 贝叶斯统计（7 月 29 日 号外）
+
+-   贝叶斯定理
+-   下载 stan 和 JAGS
+-   简单的贝叶斯回归
+
+## Week 8 高维度数据（8 月 6 日）
 
 -   第七周作业讲解
 -   dplyr 合并（[第 11 章](https://socimh.github.io/intro2tidy/dplyr-join.html)）

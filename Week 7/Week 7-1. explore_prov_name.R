@@ -18,8 +18,7 @@ varnames <- tb %>% names()
 tidy_varnames <- varnames %>%
   str_extract("/.+$") %>%
   str_remove("/ ") %>%
-  str_to_lower() %>%
-  str_replace_all(" ", "_")
+  janitor::make_clean_names()
 
 tb <- tb %>%
   rename_with(~tidy_varnames)
@@ -31,11 +30,19 @@ tb %>%
 tb %>% filter(chinese_name == "上海")
 # E.g., 古称，沪渎/封地，春申君 is related to 沪/申,
 # because 古称，沪渎 -> 沪, 封地，春申君 -> 申
+
 split_tb <- tb %>%
   mutate(
     short_name = str_split(short_name, "[/或]"),
     origin_of_short_name = str_split(origin_of_short_name, "[/或]")
   )
+
+tibble(a = 1) %>% s_type()
+list(a = 1, b = tibble(a = 1)) %>% class()
+
+split_tb %>%
+  slice(9) %>%
+  pull(short_name)
 
 unnest_tb1 <- split_tb %>%
   unnest_longer(short_name) %>%
@@ -44,6 +51,9 @@ unnest_tb1 <- split_tb %>%
     .by = "chinese_name"
   )
 
+unnest_tb1 %>%
+  relocate(short_name_id)
+
 unnest_tb2 <- split_tb %>%
   unnest_longer(origin_of_short_name) %>%
   mutate(
@@ -51,6 +61,9 @@ unnest_tb2 <- split_tb %>%
     .by = "chinese_name"
   ) %>%
   select(-short_name)
+
+unnest_tb2 %>%
+  relocate(short_name_id)
 
 abbr_tb <- unnest_tb1 %>%
   select(chinese_name, short_name, short_name_id) %>%
@@ -62,6 +75,10 @@ abbr_tb <- unnest_tb1 %>%
   )
 
 abbr_tb %>%
+  print(n = Inf)
+
+tb %>%
+  filter(origin_of_short_name == "缩略") %>%
   print(n = Inf)
 
 abbr_tb %>%

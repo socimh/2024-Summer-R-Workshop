@@ -2,9 +2,12 @@
 
 pacman::p_load(tidyverse, statart, epubr)
 
-tb <- epub("C:/Users/socim/Downloads/额尔古纳河右岸.epub")
+raw_book <- epub("C:/Users/socim/Downloads/额尔古纳河右岸.epub")
 
-book <- tb %>%
+raw_book %>%
+  print(width = Inf)
+
+book <- raw_book %>%
   pull(data) %>%
   .[[1]] %>%
   slice(2) %>%
@@ -31,15 +34,24 @@ book_vector[1:20]
 book_vector %>%
   map_dbl(~ str_count(.x, "[。！？!?]"))
 
-book_vector[459:461]
+book_vector[459:463]
 
 
+# Analyze a name in the book
 keyword_tb <- book %>%
   str_locate_all("列娜") %>%
   .[[1]] %>%
   as_tibble() %>%
   mutate(
     location = row_mean(start:end) / word_count
+  )
+
+tibble(
+  location = seq(.005, .98, .079)
+) %>%
+  mutate(
+    y = floor(location * 100),
+    x = location * 1e4 - y * 100
   )
 
 keyword_tb %>%
@@ -108,3 +120,5 @@ keyword_plot("拉吉达")
 keyword_plot("瓦罗加")
 keyword_plot("马伊堪")
 keyword_plot("马粪包")
+
+keyword_plot("安草儿")

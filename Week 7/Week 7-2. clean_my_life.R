@@ -14,6 +14,9 @@ num_to_date <- function(x, suffix) {
     paste0(suffix)
 }
 
+1:10 %% 2
+1:10 %% 2 == 1
+
 raw_names <- raw_data %>% names()
 date_names <- map_chr(
   1:length(raw_names),
@@ -40,6 +43,10 @@ raw_travel_data <- raw_data %>%
     travel = str_extract(travel, "^[来回去到]\\w{2,3}$")
   )
 
+raw_travel_data %>%
+  filter(!is.na(travel)) %>%
+  arrange(date)
+
 travel_data <- raw_travel_data %>%
   distinct(date) %>%
   left_join(
@@ -54,7 +61,7 @@ travel_data <- raw_travel_data %>%
       str_remove_all(travel, "^[来回去到]")
     )
   ) %>%
-  fill(travel) %>%
+  fill(travel, .direction = "down") %>%
   rename(city = travel) %>%
   mutate(
     lag_date = lag(date),
@@ -81,6 +88,7 @@ travel_data <- raw_travel_data %>%
   ) %>%
   select(date, city)
 
+# draw the travel history
 travel_data %>%
   group_by(date) %>%
   summarise(
@@ -88,6 +96,7 @@ travel_data %>%
   ) %>%
   filter(str_detect(city, "->"))
 
+# count # of days in each city
 travel_data %>%
   group_by(date) %>%
   mutate(
@@ -107,4 +116,5 @@ where_am_i <- function(date_str) {
     pull(city)
 }
 
+# find the location in a certain date
 where_am_i("2024-02-01")
