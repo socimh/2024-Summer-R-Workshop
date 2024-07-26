@@ -95,7 +95,7 @@ statart 和 tidyverse 链接
 -   分析中国省份的简写
 -   分析日常生活、旅行轨迹
 -   分析《额尔古纳河右岸》小说
--   [Zoom 录像回放](https://hkust.zoom.us/rec/share/eAezDSxt1-tNm5BRLSysmWWNm-VIiTdsKswSSydQiritMNIW5apXO3peQb_rsOno.DsV9A1wItdaoEYwI)
+-   [Zoom 录像回放](https://hkust.zoom.us/rec/share/FRnn4rg-HyFXS0AkdnaevR1oHDBoVjYbFybuiPrfbLiS2a3oFaAvC-2kPRPty3DM.E6u5lhJlSgRZbrYp)
 
 ## Week 7b 贝叶斯统计（7 月 29 日 号外）
 
