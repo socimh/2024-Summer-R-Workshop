@@ -97,10 +97,11 @@ statart 和 tidyverse 链接
 -   分析《额尔古纳河右岸》小说
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/FRnn4rg-HyFXS0AkdnaevR1oHDBoVjYbFybuiPrfbLiS2a3oFaAvC-2kPRPty3DM.E6u5lhJlSgRZbrYp)
 
-## Week 7b 贝叶斯统计（7 月 29 日 号外）
+## Week 7b 贝叶斯统计（7 月 30 日 号外）
 
+-   概率论基础
 -   贝叶斯定理
--   下载 stan 和 JAGS
+-   贝叶斯案例模拟
 -   简单的贝叶斯回归
 
 ## Week 8 高维度数据（8 月 6 日）

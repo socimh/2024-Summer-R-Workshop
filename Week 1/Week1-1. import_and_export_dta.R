@@ -13,8 +13,7 @@ library(statart)
 # Load the sample data
 # Change it to your own directory
 # There are many ways to specify the path
-path <- getwd() %>%
-  file.path("Week 1/Sample Data/sample_data.dta")
+path <- "D:/R/Teaching/2024 Summer R Workshop/Week 1/Sample Data/sample_data.dta"
 
 tb <- read_data(path)
 # tb <- read_dta(path) # equivalent

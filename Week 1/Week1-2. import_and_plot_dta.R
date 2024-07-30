@@ -32,6 +32,7 @@ gg <- tb |>
     linetype = "dashed"
   )
 
+gg
 # Change it to your own directory
 out_path <- getwd() %>%
   file.path("Week 1/sample data/sample_data_plot.png")
