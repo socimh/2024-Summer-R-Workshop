@@ -26,7 +26,7 @@ tb <- read_data(file) %>%
 tb %>%
   mutate(
     zhi_num = str_count(content, "之[。！？\\.\\?!]")
-    ) %>%
+  ) %>%
   summarise(num = sum(zhi_num))
 
 # QUESTION 2. Filter sentences with exactly two "，" and only one "。".
@@ -34,7 +34,7 @@ tb %>%
 tb %>%
   filter(
     str_count(content, "，") == 2 &
-    str_count(content, "。") == 1
+      str_count(content, "。") == 1
   )
 
 tb %>%

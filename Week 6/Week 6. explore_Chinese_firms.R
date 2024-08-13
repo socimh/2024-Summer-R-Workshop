@@ -395,7 +395,7 @@ tb2011 %>%
     ),
     gender_fct = factor(gender, labels = c("女", "男")),
     female = gender == 1
-    ) %>%
+  ) %>%
   tab(性别, gender, gender_fct, female)
 
 
@@ -438,5 +438,3 @@ fit %>%
 
 fit %>%
   augment()
-
-

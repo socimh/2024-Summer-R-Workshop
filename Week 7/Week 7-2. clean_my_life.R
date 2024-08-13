@@ -4,8 +4,8 @@ pacman::p_load(
 
 raw_data <- read_data(
   "D:/Health/饮食运动表 仅教学.xlsx",
-                      range = "B2:AC36"
-  )
+  range = "B2:AC36"
+)
 
 num_to_date <- function(x, suffix) {
   x %>%
@@ -29,7 +29,7 @@ date_names <- map_chr(
   suppressWarnings()
 
 raw_data <- raw_data %>%
-  rename_with(~ date_names)
+  rename_with(~date_names)
 
 
 raw_travel_data <- raw_data %>%

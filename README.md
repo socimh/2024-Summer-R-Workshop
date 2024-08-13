@@ -105,25 +105,26 @@ statart 和 tidyverse 链接
 -   简单的贝叶斯回归
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/8Ctqn38Qd9RqeeUCyTON0pcA7_SxeCzrjBFSavCrjCRZ_L1JIwXqB_yw853mhjv6.N8y8WmzZukZ2jw-9)
 
-## Week 9 空间数据（8 月 6 日）
+## Week 9 空间数据（8 月 13 日）
 
--   分析旅行城市
--   分析跑步轨迹
--   分析足球运动员热力
+-   [sf](https://r-spatial.github.io/sf/) 处理空间数据（[GeoR Ch2](https://r.geocompx.org/spatial-class)）
+-   geom_sf() 画地图
+-   [leaflet](https://rstudio.github.io/leaflet/) 画交互地图
+-   绘制中国地图
+-   绘制调研轨迹
 
-## Week 10 网络数据、图像分析（8 月 13 日）
+## Week 10 网络数据、图像分析（8 月 20 日）
 
 -   分析手机照片
 -   分析城市路网
 -   分析UGOD学生网络
 
-## Week 11 机器学习（8 月 20 日）
+## Week 11 机器学习（8 月 27 日？）
 
 -   机器学习基本原理
 -   预测中国任意位置的气温
 -   可解释性机器学习
 -   双重纠偏机器学习
-
 
 ## 说明
 
