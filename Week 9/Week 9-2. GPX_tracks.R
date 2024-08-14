@@ -45,8 +45,8 @@ ggplot() +
   annotation_map_tile(type = "osmtransport") +
   geom_sf(
     data = track_points,
-    # put ele in the aes() function
-    aes(color = ele)
+    # put the time in the aes() function
+    aes(color = time)
   ) +
   scale_color_viridis_c(
     option = "F",
@@ -92,6 +92,7 @@ ggplot() +
   annotation_map_tile(type = "osmtransport") +
   geom_sf(
     data = track_lines,
+    # lwd is the line width
     lwd = 3,
     color = "firebrick"
   )
@@ -129,17 +130,23 @@ ggplot() +
 
 # ================= Solution 3: Draw Interactive Maps =================
 
+# How to build a website
+# 1. HTML (HyperText Markup Language)
+# 2. CSS (Cascading Style Sheets)
+# 3. JavaScript (For interactive elements)
+
 # Draw segments with leaflet
-start_leaflet <- leaflet(
+osm_leaflet <- leaflet(
   options = leafletOptions(
     crs = leafletCRS(code = "EPSG:4490")
   )
 ) %>%
   addProviderTiles(
+    # Other options include WorldGreyCanvas, Esri.WorldImagery, etc.
     providers$OpenStreetMap
   )
 
-start_leaflet %>%
+osm_leaflet %>%
   addPolylines(
     data = track_lines,
     color = "#762495",
@@ -148,7 +155,7 @@ start_leaflet %>%
   )
 
 # Vary the line width by speed
-start_leaflet %>%
+osm_leaflet %>%
   addPolylines(
     data = track_lines,
     color = "#762495",
@@ -157,7 +164,7 @@ start_leaflet %>%
     opacity = .8
   )
 
-start_leaflet %>%
+osm_leaflet %>%
   addPolylines(
     data = track_lines,
     color = "#762495",
@@ -173,7 +180,7 @@ pal <- colorQuantile(
   reverse = TRUE
 )
 
-start_leaflet %>%
+osm_leaflet %>%
   addPolylines(
     data = track_lines,
     color = ~ pal(speed),
@@ -215,15 +222,15 @@ ggplot() +
     size = 3
   )
 
-start_leaflet %>%
+osm_leaflet %>%
   addPolylines(
-    data = stay_paths,
+    data = selected_paths,
     color = "#762495",
     weight = 5,
     opacity = .8
   ) %>%
   addCircleMarkers(
-    data = stay_points,
+    data = selected_points,
     color = "#762495",
     radius = 5,
     fillOpacity = .5

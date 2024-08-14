@@ -112,6 +112,7 @@ statart 和 tidyverse 链接
 -   [leaflet](https://rstudio.github.io/leaflet/) 画交互地图
 -   绘制中国地图
 -   绘制调研轨迹
+-   [Zoom 录像回放](https://hkust.zoom.us/rec/share/S0AbaoBACiu5mX1KIMlPPzGaSe4aIoly-egHfZskyFs5K4sPejjBuSqJREA-iXC1.PNzs9ugERhZrtT-_)
 
 ## Week 10 网络数据、图像分析（8 月 20 日）
 

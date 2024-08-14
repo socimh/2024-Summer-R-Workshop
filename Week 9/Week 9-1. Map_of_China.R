@@ -3,8 +3,8 @@
 # Ouput: Maps
 
  pacman::p_load(
-  sf, ggspatial, ggthemes, cowplot, scales,
-  readr, tidyverse, statart
+  sf, ggspatial, ggthemes, cowplot,
+  tidyverse, statart
 )
 
 master_folder <- "D:/R/Teaching/2024 Summer R Workshop/Week 9/China Shapefiles"
@@ -13,6 +13,7 @@ read_and_convert_sf <- function(folder_name, file_name) {
   output_sf <- paste(folder_name, file_name, sep = "/") %>%
     st_read(quiet = TRUE) %>%
     rename_with(tolower) %>%
+    # Set the projection to EPSG:4490 (China Geodetic Coordinate System 2000)
     st_transform(4490)
   print(output_sf)
   return(output_sf)
@@ -59,6 +60,16 @@ cnprov %>%
 cnprov %>%
   tibble()
 
+cnprov %>%
+  tibble() %>%
+  class()
+
+
+# A traditional ggplot
+# ggplot(data) +
+#   aes(x, y) +
+#   geom_point()
+
 # A simple map
 ggplot(cnprov) +
   geom_sf()
@@ -97,7 +108,9 @@ ggplot() +
   geom_sf(data = southsea_islands, color = "#444444"))
 
 # (x <- y) is equivalent to x <- y, and then print x
-(x <- 1 + 1)
+1 + 1 # return the result only
+x <- 1 + 1 # assign the result to x only
+(x <- 1 + 1) # assign the result to x and print x
 
 # Change the coordinate system
 # This makes the map look less distorted
@@ -116,6 +129,16 @@ gg +
     crs = "+proj=laea +lat_0=40 +lon_0=104"
   )
 
+# Recall ...
+diamonds %>%
+  sample_n(1000) %>%
+  set_seed(20240813) %>%
+  ggplot() +
+  aes(x = carat, y = price) +
+  geom_point() +
+  # coord_...() is used to change the coordinate system
+  coord_flip()
+
 # Change the breaks of the longitude
 (gg <- gg +
   coord_sf(
@@ -126,19 +149,14 @@ gg +
   # x = longitude
   scale_x_continuous(breaks = seq(80, 130, 10)))
 
-# Change the breaks of the longitude
-gg +
-  # x = longitude
-  scale_x_continuous(breaks = seq(80, 130, 10))
-
-# Add a scale bar
+# Add a scale bar 比例尺
 gg +
   annotation_scale()
 
 gg +
   # Adjust the position of the scale bar
   annotation_scale(
-    location = "bl",
+    location = "bl", # bottom left
     pad_x = unit(1, "cm"),
     pad_y = unit(.5, "cm")
   )
@@ -155,7 +173,7 @@ gg +
 gg +
   annotation_north_arrow(
     style = north_arrow_fancy_orienteering(),
-    location = "tl",
+    location = "tl", # top left
     height = unit(2, "cm"),
     width = unit(2, "cm")
   )
@@ -201,7 +219,7 @@ cnprov
 
 ###################### Map with a single color ######################
 selected_prov <- cnprov %>%
-  filter(between(shape_area, 14, 16))
+  filter(between(shape_area, 15, 16))
 
 # Wrong
 ggplot() +
@@ -221,7 +239,9 @@ ggplot() +
   geom_sf(
     data = selected_prov,
     fill = "firebrick"
-  )
+  )+
+  theme_bw()
+
 
 ###################### Map with multiple colors ######################
 ggplot() +
@@ -242,6 +262,30 @@ ggplot() +
     lwd = .15
   ) +
   scale_fill_distiller(palette = "YlOrRd", direction = 1)
+
+cnprov %>%
+  mutate(
+    area_5g = cut_quantile(shape_area, n = 5)
+  ) %>%
+  ggplot() +
+  geom_sf(
+    aes(fill = area_5g),
+    color = "lightgray",
+    lwd = .15
+  ) +
+  scale_fill_brewer(palette = "YlOrRd", direction = 1)
+
+cnprov %>%
+  mutate(
+    area_5g = cut_length(shape_area, n = 5)
+  ) %>%
+  ggplot() +
+  geom_sf(
+    aes(fill = area_5g),
+    color = "lightgray",
+    lwd = .15
+  ) +
+  scale_fill_brewer(palette = "YlOrRd", direction = 1)
 
 
 # ================= Write Functions =================
@@ -363,6 +407,9 @@ file <- str_glue("{master_folder}/visited_cities.xlsx")
 my_cities <- read_data(file) %>%
   filter(visit_year >= 2023)
 my_cities
+
+# my_cities <- read_data(file) %>%
+#   filter(visit_year >= 2014)
 
 travel_plot(my_cities)
 ggsave("D:/R/Teaching/2024 Summer R Workshop/Week 9/travelmap.png", width = 12, height = 8.67)
