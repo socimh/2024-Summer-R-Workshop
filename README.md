@@ -1,4 +1,4 @@
-## 2024 R 语言 tidyverse 入门工作坊
+## d2024 R 语言 tidyverse 入门工作坊
 
 <!-- [点击回到 Github](https://github.com/socimh/2024-Summer-R-Workshop) -->
 
@@ -114,18 +114,14 @@ statart 和 tidyverse 链接
 -   绘制调研轨迹
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/S0AbaoBACiu5mX1KIMlPPzGaSe4aIoly-egHfZskyFs5K4sPejjBuSqJREA-iXC1.PNzs9ugERhZrtT-_)
 
-## Week 10 网络数据、图像分析（8 月 20 日）
+## Week 10 网络数据（8 月 20 日）
 
--   分析手机照片
--   分析城市路网
--   分析UGOD学生网络
-
-## Week 11 机器学习（8 月 27 日？）
-
--   机器学习基本原理
--   预测中国任意位置的气温
--   可解释性机器学习
--   双重纠偏机器学习
+-   [网络分析基础](https://towardsdatascience.com/network-analysis-d734cd7270f8)
+-   [tidygraph](https://tidygraph.data-imaginist.com/) 处理网络数据
+-   [ggraph](https://ggraph.data-imaginist.com/) 绘制网络图
+-   绘制学生网络
+-   [exifr](https://github.com/paleolimbot/exifr?tab=readme-ov-file) 读入照片元数据
+-   绘制照片网络
 
 ## 说明
 

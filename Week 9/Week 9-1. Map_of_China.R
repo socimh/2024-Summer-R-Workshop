@@ -2,7 +2,7 @@
 # Input: Shapefiles and
 # Ouput: Maps
 
- pacman::p_load(
+pacman::p_load(
   sf, ggspatial, ggthemes, cowplot,
   tidyverse, statart
 )
@@ -239,7 +239,7 @@ ggplot() +
   geom_sf(
     data = selected_prov,
     fill = "firebrick"
-  )+
+  ) +
   theme_bw()
 
 
