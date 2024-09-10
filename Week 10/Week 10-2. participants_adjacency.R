@@ -16,7 +16,11 @@ features_tb <- tb %>%
   unnest_tokens(feature, area) %>% # from tidytext
   # Remove some common words
   filter(!feature %in% c("science", "and", "of", "governance", "design")) %>%
-  distinct(feature, .by = name, .keep_all = TRUE) %>%
+  # Deduplicate 对每个人去重
+  group_by(name) %>%
+  distinct(feature, .keep_all = TRUE) %>%
+  ungroup() %>%
+  # Only keep features that appear more than once
   filter(n() > 1, .by = feature)
 
 

@@ -2,7 +2,7 @@
 
 <!-- [点击回到 Github](https://github.com/socimh/2024-Summer-R-Workshop) -->
 
-沈明宏（[mhshenaa\@connect.ust.hk](mailto:mhshenaa@connect.ust.hk)）
+沈明宏（[mhshenaa@connect.ust.hk](mailto:mhshenaa@connect.ust.hk)）
 
 ## 实用链接
 
@@ -80,7 +80,7 @@ statart 和 tidyverse 链接
 -   分析全国地铁支付方式数据
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/xqBg8WBZIw3a9XlDmQh5dRK9bGCSys8cq8Hs_5roVsrNsk6SO_t_N-D-rdWsAVvF.eS81LV9CgQUzM7L1)
 
-## Week 6 类别数据、时间数据、回归模型（7 月 9 日 【可能晚些开始】）
+## Week 6 类别数据、时间数据、回归模型（7 月 9 日）
 
 -   第五周作业讲解
 -   forcats 处理类别数据（[R4DS Ch16](https://r4ds.hadley.nz/factors)、[王敏杰 18章](https://bookdown.org/wangminjie/R4DS/tidyverse-forcats.html)）
@@ -89,7 +89,7 @@ statart 和 tidyverse 链接
 -   分析中国上市公司领导数据
 -   [Zoom 录像回放](https://hkust.zoom.us/rec/share/Szb_FgVKYMf-XrAxRCJ7gN1beys_S7_m3KDk4OLGioMCCLJIeO6Y29hyb790dJAg.5uUPdRtvwoQtwe8H)
 
-## Week 7 驳杂数据（7 月 24 日 【周三】）
+## Week 7 驳杂数据（7 月 24 日）
 
 -   tidyr 转换长宽数据（[王敏杰 15章](https://bookdown.org/wangminjie/R4DS/tidyverse-tidyr.html)）
 -   分析中国省份的简写
@@ -122,6 +122,7 @@ statart 和 tidyverse 链接
 -   绘制学生网络
 -   [exifr](https://github.com/paleolimbot/exifr?tab=readme-ov-file) 读入照片元数据
 -   绘制照片网络
+-   [Zoom 录像回放](https://hkust.zoom.us/rec/share/bUY6GY4_1TNA27GNlb_2i6UE8QEJtMOoBZZ62POBS5vP8CZflOHq8DguwxuKTlru.85nXTLcBD15LS2EL)
 
 ## 说明
 

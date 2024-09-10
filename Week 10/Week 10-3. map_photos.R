@@ -18,7 +18,8 @@ photos <- list.files(
 )
 length(photos)
 
-photo_data <- read_exif(photos,
+photo_data <- read_exif(
+  photos,
   tags = c(
     "Model", "ISO", "ExposureTime", "FOV", "LightValue",
     "GPSDateTime", "GPSLatitude", "GPSLongitude", "GPSAltitude"
@@ -49,6 +50,11 @@ photo_points <- photo_data %>%
   ) %>%
   st_as_sf(coords = c("GPSLongitude", "GPSLatitude"))
 
+photo_points %>%
+  as_tibble() %>%
+  select(label) %>%
+  slice(1) %>%
+  pull(1)
 
 # ========== Generate Segments Data ========== #
 points_to_linestrings <- function(points_sf) {
@@ -98,7 +104,7 @@ print.write_leaflet <- function(x, ...) {
   print("HTML file saved!")
 }
 
-leaflet(
+start_leaflet <- leaflet(
   width = 1280,
   height = 750,
   options = leafletOptions(
@@ -136,7 +142,11 @@ leaflet(
     tiles = "OpenStreetMap.HOT",
     # tiles = "Esri.WorldGrayCanvas",
     zoomLevelOffset = -5
-  ) %>%
+  )
+
+start_leaflet
+
+start_leaflet %>%
   addPolylines(
     data = photo_segments,
     popup = ~label

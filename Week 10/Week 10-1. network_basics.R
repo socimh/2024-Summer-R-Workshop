@@ -1,8 +1,6 @@
 pacman::p_load(
-  tidygraph,
-  ggraph,
-  tidyverse,
-  statart
+  tidygraph, ggraph,
+  tidyverse, statart
 )
 
 # Basic concepts
@@ -19,6 +17,7 @@ pacman::p_load(
 # highschool data from ggraph
 highschool %>%
   as_tibble()
+?highschool
 
 # any mutually connected students?
 highschool %>%
@@ -31,6 +30,7 @@ highschool %>%
 
 # convert to a graph object
 highschool_graph <- highschool %>%
+  filter(year == 1958) %>%
   as_tbl_graph(directed = TRUE)
 
 highschool_graph
@@ -64,7 +64,7 @@ highschool_graph %>%
 # A graph with only edges
 highschool_graph %>%
   ggraph() +
-  geom_edge_link() +
+  geom_edge_fan() +
   theme_void()
 
 # A graph with only nodes
@@ -76,21 +76,21 @@ highschool_graph %>%
 # A graph with both nodes and edges
 highschool_graph %>%
   ggraph() +
-  geom_edge_link() +
+  geom_edge_fan() +
   geom_node_point() +
   theme_void()
 
 # prettify the graph
 highschool_graph %>%
   ggraph() +
-  geom_edge_link(color = "gray", alpha = .5) +
+  geom_edge_fan(color = "gray", alpha = .5) +
   geom_node_point(aes(size = between_centrality, alpha = between_centrality)) +
   theme_void()
 
 # Control the modifiable aesthetics
 highschool_graph %>%
   ggraph() +
-  geom_edge_link(color = "gray", alpha = .5) +
+  geom_edge_fan(color = "gray", alpha = .5) +
   geom_node_point(aes(size = between_centrality, alpha = between_centrality)) +
   # size between 1 and 8
   scale_size_continuous(range = c(1, 8)) +
@@ -100,7 +100,7 @@ highschool_graph %>%
 # This step is optional
 highschool_graph %>%
   ggraph() +
-  geom_edge_link(color = "gray", alpha = .5) +
+  geom_edge_fan(color = "gray", alpha = .5) +
   geom_node_point(aes(size = between_centrality, alpha = between_centrality)) +
   geom_node_text(aes(label = name), color = "white") +
   scale_size_continuous(range = c(1, 8)) +
@@ -111,7 +111,7 @@ highschool_graph %>%
 highschool_graph %>%
   # Other layout options: linear, matrix, fr, etc.
   ggraph(layout = "kk") +
-  geom_edge_link(color = "gray", alpha = .5) +
+  geom_edge_fan(color = "gray", alpha = .5) +
   geom_node_point(aes(size = between_centrality, alpha = between_centrality)) +
   geom_node_text(aes(label = name), color = "white") +
   scale_size_continuous(range = c(1, 8)) +
